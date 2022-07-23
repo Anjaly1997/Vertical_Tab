@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/phosphor-icons"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Vertical Tabs</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <ul class="indicator">
+                <li class="active" data-target="#home">
+                    <i class="ph-house"></i> Home
+                </li>
+                <li data-target="#profile"><i class="ph-user-circle"></i> Profile</li>
+                <li data-target="#contact"><i class="ph-phone"></i> Contact</li>
+                <li data-target="#settings"><i class="ph-gear-six"></i> Settings</li>
+            </ul>
+            <ul class="content">
+                <li class="active" id="home">
+                    <h1>Home</h1>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Error molestias quasi est expedita, a pariatur deleniti cum reiciendis similique cupiditate?
+                    </p>
+                </li>
+                <li id="profile">
+                    <h1>Profile</h1>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Error molestias quasi est expedita, a pariatur deleniti cum reiciendis similique cupiditate?
+                    </p>
+                </li>
+                <li id="contact">
+                    <h1>Contact</h1>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Error molestias quasi est expedita, a pariatur deleniti cum reiciendis similique cupiditate?
+                    </p>
+                </li>
+                <li id="settings">
+                    <h1>Settings</h1>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Error molestias quasi est expedita, a pariatur deleniti cum reiciendis similique cupiditate?
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        const allIndicator = document.querySelectorAll(".indicator li");
+        const allContent = document.querySelectorAll(".content li");
+
+        allIndicator.forEach((item) => {
+            item.addEventListener("click", function() {
+                const content = document.querySelector(this.dataset.target);
+
+                allIndicator.forEach((i) => {
+                    i.classList.remove("active");
+                });
+
+                allContent.forEach((i) => {
+                    i.classList.remove("active");
+                });
+
+                content.classList.add("active");
+                this.classList.add("active");
+            });
+        });
+    </script>
+</body>
+
+</html>
